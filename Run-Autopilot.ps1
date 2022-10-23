@@ -1,14 +1,14 @@
 Write-Host 'Setting Execution Policy to Unrestricted...' -ForegroundColor Green
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force | Out-Null
+$null = Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 
 Write-Host 'Installing NuGet package provider...' -ForegroundColor Green
-Install-PackageProvider -Name NuGet -Force | Out-Null
+$null = Install-PackageProvider -Name NuGet -Force
 
 Write-Host 'Installing Get-WindowsAutoPilotInfo script...' -ForegroundColor Green
-Install-Script -Name Get-WindowsAutoPilotInfo -Force | Out-Null
+$null = Install-Script -Name Get-WindowsAutoPilotInfo -Force
 
 Write-Host 'Installing WindowsAutopilotIntune module...' -ForegroundColor Green
-Install-Module -Name WindowsAutopilotIntune -Force | Out-Null
+$null = Install-Module -Name WindowsAutopilotIntune -Force
 
 Write-Host 'Executing "Get-WindowsAutoPilotInfo"...' -ForegroundColor Green
 Get-WindowsAutoPilotInfo -GroupTag Tag00 -Online -AddToGroup "ACS_WIN_Devices_All_Autopilot_Test_Devices" -Assign
